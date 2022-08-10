@@ -16,12 +16,33 @@ img{
 body{
     background: #faf6ed;;
     color: #222;
+    display: grid;
+    grid-template-columns: 1fr 120px minmax(300px, 800)1fr;
+    font-family: "iBM Plex Mono", monospace;
 }
 .menu{
     grid-column: 3/5;
     margin: 2rem 0 2rem 0;
+    background:#fb5;
 }
 
 .menu ul{
     display: flex;
+    flex-wrap: wrap;
+    padding: 10px;
+}
+.menu li a{
+    display: block;
+    padding: 10px;
+    margin: 0 10px 0 0;
+    color: #222;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: .875rem;
+    letter-spacing: 0.1rem;
+}
+
+
+.grid-section{
+    grid-column: 2/4;
 }
