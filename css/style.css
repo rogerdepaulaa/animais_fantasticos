@@ -12,7 +12,6 @@ dl {
   list-style: none;
   text-decoration: none;
   font-style: normal;
-  font-family: "iBM Plex Mono", monospace;
 }
 p,
 address {
@@ -49,6 +48,7 @@ body {
   padding: 10px;
   margin-right: 10px;
   color: #222;
+  font-family: "iBM Plex Mono", monospace;
   font-weight: bold;
   font-size: 0.875rem;
   text-transform: uppercase;
@@ -77,9 +77,9 @@ body {
 .animais p {
   line-height: 1.2;
   margin-bottom: 1.5rem;
-  font-family: Helvetica, Arial, sans-serif;
 }
 .animais h2 {
+  font-family: "IBM Plex Mono", monospace;
   font-size: 1rem;
   text-transform: uppercase;
   letter-spacing: 0.1em;
@@ -113,6 +113,10 @@ body {
 .animais-lista::-webkit-scrollbar-track {
   background: #faf6ed;
 }
+
+.animais-lista li{
+  cursor: pointer;
+}
 .animais-descricao {
   grid-column: 3;
 }
@@ -124,9 +128,11 @@ body {
   grid-column: 2/4;
 }
 .faq-lista dt {
+  font-family: "IBM Plex Mono", monospace;
   font-weight: bold;
   margin: 2rem 0 0.5rem 0;
   color: #e54;
+  cursor: pointer;
 }
 
 .faq-lista dt::before {
@@ -140,7 +146,6 @@ body {
 
 .faq-lista dd {
   margin: 0 0 0.5rem 30px;
-  font-family: Arial, Helvetica, sans-serif;
 }
 
 .mapa {
@@ -169,49 +174,121 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
-.copy {
+.copy{
   grid-column: 3/5;
   margin-bottom: 2rem;
-  background: #fb5;
+  background:#fb5;
   padding: 20px;
 }
-.copy p {
-  font-family: "IBM Plex Mono";
+.copy p{
+  font-family: 'IBM Plex Mono';
   font-weight: bold;
 }
-@media (max-width: 800px) {
-    body {
-      grid-template-columns: 1fr;
-    }
-    .menu,
-    .grid-section,
-    .copy {
-      grid-column: 1;
-    }
-    .grid-section {
-      grid-template-columns: 100px 1fr;
-      grid-gap: 10px;
-    }
-    .animais-lista {
-      grid-column: 1;
-    }
-    .faq-lista,
-    .dados,
-    .mapa {
-      grid-column: 1/3;
-    }
-    .titulo {
-      font-size: 3.5rem;
-    }
-    .menu,
-    .copy {
-      margin: 0px;
-    }
-  }
-  
-  @media (max-width: 400px) {
-    .titulo {
-      font-size: 3rem;
-    }
-  }
 
+
+
+.js [data-tab="content"] section {
+  display: none;
+}
+
+[data-tab="content"] section.ativo{
+  display: block !important;
+}
+
+[data-tab="content"] section.ativo.show-right{
+  animation: show-right .5s forwards;
+}
+
+[data-tab="content"] section.ativo.show-down{
+  animation: show-down .5s forwards;
+}
+
+@keyframes show-right{
+  from {
+    opacity: 0;
+    transform: translate3d(-30px, 0, 0);
+  }
+  to{
+    opacity: 1;
+    transform: translate3d(0);
+  }
+}
+
+@keyframes show-down{
+  from {
+    opacity: 0;
+    transform: translate3d(0, -30px, 0);
+  }
+  to{
+    opacity: 1;
+    transform: translate3d(0);
+  }
+}
+
+
+.js [data-anime="accordion"] dd{
+  display: none;
+}
+[data-anime="accordion"] dd.ativo {
+  display: block;
+  animation: slideDown .7s forwards;
+}
+
+[data-anime="accordion"] dt::after{
+  content: '⮯';
+  margin-left: 10px;
+}
+[data-anime="accordion"] dt.ativo::after{
+  content: '⮭';
+
+}
+@keyframes slideDown{
+  from{
+    opacity: 0;
+    max-height: 0;
+  }
+  to{
+    opacity: 1;
+    max-height: 200px;
+  }
+}
+.js [data-anime="scroll"]{
+  opacity: 0;
+  transition: 1s;
+  transform: translate3d(-5px, 0 ,0);
+}
+.js [data-anime="scroll"].ativo{
+  opacity: 1;
+  transform: matrix3d(0,0,0);
+}
+
+@media(max-width: 800px){
+  body{
+    grid-template-columns: 1fr;
+  }
+  .menu, .grid-section, .copy{
+    grid-column: 1;
+  }
+  .grid-section{
+    grid-template-columns: 100px 1fr;
+    grid-gap: 10px;
+  }
+  .animais-lista{
+    grid-column: 1;
+  }
+  .faq-lista,.dados, .mapa{
+    grid-column: 1/3;
+  }
+  .titulo{
+    font-size: 3.5rem;
+  }
+  .menu,.copy {
+    margin: 0px;
+  }
+}
+
+@media(max-width: 400px){
+  .titulo{
+    font-size: 3rem;
+  }
+}
