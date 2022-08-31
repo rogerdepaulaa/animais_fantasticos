@@ -9,7 +9,21 @@ export default function initDropDownMenu(){
 
     function handleClick(event){
         event.preventDefault();
-        this.classList.toggle('active');
+        this.classList.add('active');
+        outsideClick(this, () => {
+            this.classList.remove('active')
+        });
     }
-}
 
+    function outsideClick(element, callback){
+        const html = document.documentElement;
+        html.addEventListener('click', handleOutsideClick);
+        element.setAttribute
+        function handleOutsideClick(event){
+            if(!element.contains(event.target)) {
+                html.removeEventListener('click', handleOutsideClick);
+            callback();
+            }
+        }
+    }   
+}
