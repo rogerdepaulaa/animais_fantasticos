@@ -11,6 +11,7 @@
         display: block;
         animation: show-up .3s forwards;
 }
+
 @keyframes show-up{
     from{
         opacity: 0;
@@ -30,7 +31,6 @@
     z-index: 200;
 }
 
-
 .dropdown-menu::before{
     content: '';
     display: block;
@@ -41,12 +41,8 @@
     border-left:  10px solid transparent;
     border-right:  10px solid transparent;
     border-bottom:  10px solid #e54;
-
 }
 
 .dropdown-menu li a:hover{
     color:#fff ;
 }
-
-
-

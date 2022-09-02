@@ -21,7 +21,8 @@
 <body>
     <div class="grid-container">
         <nav class="menu" data-menu="suave">
-            <ul>
+            <button data-menu="button" aria-expanded="false" aria-controls="menu">Menu</button>
+            <ul data-menu="list" id="menu">
                 <li><a href="#animais">Animais</a></li>
                 <li data-dropdown>
                     <a href="sobre.html">Sobre</a>
@@ -110,6 +111,29 @@
                 </dd>
             </dl>
         </section>
+        <section class="grid-section numeros" data-anime="scroll">
+            <h1 class="titulo">Números</h1>
+            <div class="numero-grid">
+                <div class="numero-animal">
+                    <h3>lobos</h3>
+                    <span data-numero>4874</span>
+                </div>
+                <div class="numero-animal">
+                    <h3>Raposas</h3>
+                    <span data-numero>5300</span>
+                </div>
+                <div class="numero-animal">
+                    <h3>Esquilos</h3>
+                    <span data-numero>12970</span>
+                </div>
+                <div class="numero-animal">
+                    <h3>Ursos</h3>
+                    <span data-numero>3569</span>
+                </div>
+            </div>
+
+        </section>
+
         <section class="grid-section" data-anime="scroll " id="contato">
             <h1 class="titulo">Contato</h1>
             <div class="mapa" data-tooltip aria-label="Endereço no centro da capital mineira">
