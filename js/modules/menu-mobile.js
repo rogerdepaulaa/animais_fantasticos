@@ -1,4 +1,4 @@
-import outsideClick from './dropdown-menu.js'
+import outsideClick from './outsideclick.js'
 
 export default function initMenuMobile(){
     const menuButton = document.querySelector('[data-menu="button"]');
@@ -10,8 +10,7 @@ export default function initMenuMobile(){
       menuList.classList.add('active');
       menuButton.classList.add('active');
       outsideClick(menuList, eventos, () => {
-      console.log('teste')
-    
+   
         menuList.classList.remove('active');
         menuButton.classList.remove('active');
       })
